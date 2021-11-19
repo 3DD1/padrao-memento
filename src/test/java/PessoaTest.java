@@ -31,4 +31,15 @@ class PessoaTest {
         pessoa.restaurarEstado(2);
         assertEquals(PessoaEstadoNoivando.getInstance(), pessoa.getEstado());
     }
+
+    @Test
+    void deveRetornarExcessaoIndiceInvalido(){
+        try{
+            Pessoa pessoa  = new Pessoa();
+            pessoa.restaurarEstado(0);
+            fail();
+        }catch (IllegalArgumentException e){
+            assertEquals("Índice inválido", e.getMessage());
+        }
+    }
 }
